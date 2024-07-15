@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  // Initialize state from localStorage if available
 
   const getTodo = ()=>{
     const savedTodos = localStorage.getItem("todos")
@@ -12,12 +11,11 @@ function App() {
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    // Update localStorage whenever the todo list changes
     localStorage.setItem("todos", JSON.stringify(todo));
   }, [todo]);
 
   const handleAddTodo = () => {
-    if (value.trim() === "") return; // Prevent adding empty todos
+    
     setTodo((prev) => [...prev, value]);
     setValue("");
   };
